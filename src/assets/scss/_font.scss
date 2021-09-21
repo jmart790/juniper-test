@@ -34,9 +34,6 @@ p, span {
   }
 }
 label, legend, figcaption {
-  font-size: 12px;
+  font-size: 14px;
   color: $grey-2;
-  @media screen and (min-width: $laptop) {
-    font-size: 14px;
-  }
 }
