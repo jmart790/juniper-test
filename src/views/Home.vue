@@ -62,11 +62,16 @@ export default {
   <main class="home">
     <div class="home__header">
       <h1>New Products</h1>
-      <div class="home__sort-btns">
-        <p style="marginRight:3rem;">
-          Sort
-        </p>
-        <RadioFilterGroup :options="sortOptions" v-model="selectedSort" />
+      <div class="home__sort-btns-container">
+        <label for="sort buttons">
+          Sort by:
+        </label>
+        <RadioFilterGroup
+          name="sort buttons"
+          :options="sortOptions"
+          v-model="selectedSort"
+          class="home__sort-btns"
+        />
       </div>
     </div>
     <ul class="home__product-list" v-if="products.length > 0">
@@ -80,14 +85,26 @@ export default {
 <style lang="scss">
 .home {
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
     margin-bottom: $gap-8;
+    @media screen and (min-width: $tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    h1 {
+      margin-bottom: $gap-4;
+    }
+  }
+  &__sort-btns-container {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-2;
+    @media screen and (min-width: $tablet) {
+      align-items: center;
+    }
   }
   &__sort-btns {
-    display: flex;
-    align-items: center;
+    overflow: auto;
   }
   &__product-list {
     list-style: none;
