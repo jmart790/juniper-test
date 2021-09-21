@@ -71,6 +71,7 @@ export default {
     font-size: 14px;
     font-weight: 700;
     color: $grey-3;
+    white-space: nowrap;
   }
 
   &__input:checked ~ &__fake-input {
