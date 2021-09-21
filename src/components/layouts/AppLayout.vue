@@ -49,8 +49,10 @@ export default {
   }
   &__logo {
     max-height: 50px;
-    max-width: 75px;
     mix-blend-mode: darken;
+    @media screen and (min-width: $laptop) {
+      max-height: unset;
+    }
   }
   &__page {
     width: 100%;
@@ -71,9 +73,11 @@ export default {
     @media screen and (min-width: $tablet) {
       padding: $gap-6 $gap-8;
     }
+    @media screen and (min-width: $laptop) {
+      margin: 80px auto;
+    }
     @media screen and (min-width: $laptop-lg) {
       max-width: 1660px;
-      margin: 80px auto;
     }
   }
 }
