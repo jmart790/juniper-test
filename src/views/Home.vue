@@ -21,26 +21,14 @@ export default {
         },
         {
           id: "0002",
-          label: "Popular",
+          label: "Price High",
           value: 2,
           selected: false
         },
         {
           id: "0003",
-          label: "New",
-          value: 3,
-          selected: false
-        },
-        {
-          id: "0004",
-          label: "Price High",
-          value: 4,
-          selected: false
-        },
-        {
-          id: "0005",
           label: "Price Low",
-          value: 5,
+          value: 3,
           selected: false
         }
       ]
@@ -50,7 +38,23 @@ export default {
     await this.getStoreData();
   },
   computed: {
-    ...mapGetters(["products", "salesRep", "isLoading", "error"])
+    ...mapGetters(["products", "salesRep", "isLoading", "error"]),
+    sortedProducts() {
+      if (this.selectedSort === 3) {
+        return [...this.products].sort((productA, productB) => {
+          if (productA.BasePrice > productB.BasePrice) return 1;
+          else if (productB.BasePrice > productA.BasePrice) return -1;
+          else return 0;
+        });
+      } else if (this.selectedSort === 2) {
+        return [...this.products].sort((productA, productB) => {
+          if (productA.BasePrice > productB.BasePrice) return -1;
+          else if (productB.BasePrice > productA.BasePrice) return 1;
+          else return 0;
+        });
+      }
+      return this.products;
+    }
   },
   methods: {
     ...mapActions(["getStoreData"])
@@ -75,7 +79,10 @@ export default {
       </div>
     </div>
     <ul class="home__product-list" v-if="products.length > 0">
-      <li v-for="product in products" :key="`PRODUCT-${product.ProductID}`">
+      <li
+        v-for="product in sortedProducts"
+        :key="`PRODUCT-${product.ProductID}`"
+      >
         <ProductPreview :product="product" />
       </li>
     </ul>
@@ -86,31 +93,29 @@ export default {
 .home {
   &__header {
     margin-bottom: $gap-8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-4;
     @media screen and (min-width: $tablet) {
-      display: flex;
       justify-content: space-between;
       align-items: flex-end;
-    }
-    h1 {
-      margin-bottom: $gap-4;
     }
   }
   &__sort-btns-container {
     display: flex;
-    flex-direction: column;
-    gap: $gap-2;
-    @media screen and (min-width: $tablet) {
-      align-items: center;
-    }
+    column-gap: $gap-6;
+    flex-wrap: wrap;
+    align-items: center;
   }
   &__sort-btns {
     overflow: auto;
+    padding: $gap-2;
   }
   &__product-list {
     list-style: none;
     display: grid;
     gap: $gap-12;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 </style>
