@@ -9,6 +9,7 @@ export default {
     <header class="app-layout__header">
       <div class="app-layout__header-inner">
         <img
+          class="app-layout__logo"
           src="http://images.repzio.com/productimages/772/logo772_lg.jpg?height=75"
           alt="Company logo"
         />
@@ -36,6 +37,8 @@ export default {
   }
   &__header-inner {
     padding: 0 $gap-5;
+    display: flex;
+    align-items: center;
     @media screen and (min-width: $tablet) {
       padding: 0 $gap-8;
     }
@@ -43,15 +46,17 @@ export default {
       max-width: 1660px;
       margin: 0 auto;
     }
-    img {
-      mix-blend-mode: darken;
-    }
+  }
+  &__logo {
+    max-height: 50px;
+    max-width: 75px;
+    mix-blend-mode: darken;
   }
   &__page {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    margin-top: 80px 0;
+    margin: 50px 0;
     padding: $gap-4 $gap-5;
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
