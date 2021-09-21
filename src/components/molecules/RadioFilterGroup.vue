@@ -9,17 +9,13 @@ export default {
     event: "change"
   },
   props: {
-    label: {
-      type: String,
-      required: false
-    },
     options: {
       type: Array,
       required: true
     },
     value: {
       type: [String, Number, Object],
-      required: false
+      required: true
     }
   },
   methods: {
