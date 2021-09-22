@@ -114,8 +114,11 @@ export default {
   &__product-list {
     list-style: none;
     display: grid;
-    gap: $gap-12;
+    gap: 60px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    @media screen and (min-width: $tablet) {
+      gap: 100px;
+    }
   }
 }
 </style>
