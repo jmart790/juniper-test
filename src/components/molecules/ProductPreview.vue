@@ -37,6 +37,7 @@ export default {
 
 <template>
   <div
+    tabindex="0"
     :aria-label="`${product.ItemName} name, image, price, and details`"
     class="product-preview"
     :class="{ 'product-preview--detailed': seeMore }"
@@ -73,7 +74,7 @@ export default {
     <div class="product-preview__main-info">
       <div>
         <p class="product-preview__price" name="price">
-          <span class="icon-rewards-linear-dollar-sign" />
+          <span class="icon-rewards-linear-dollar-sign"></span>
           {{ product.BasePrice.toFixed(2) }}
         </p>
       </div>
@@ -92,8 +93,31 @@ export default {
   height: 450px;
   padding: $gap-8;
   border-radius: $round-2;
-  border: 1px solid $border-color;
-  overflow: hidden;
+  background: $white;
+  transition: transform 0.3s ease-in, border-color 0.3s ease-in;
+  cursor: pointer;
+  &::after {
+    position: absolute;
+    z-index: -1;
+    content: " ";
+    left: 0;
+    box-shadow: $shadow-1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+  }
+  &:hover,
+  &:focus {
+    transform: translateY(-8px);
+    border-color: $primary-dk;
+    outline: none;
+    &::after {
+      opacity: 1;
+    }
+  }
   &__img-container {
     height: 320px;
     width: 100%;
@@ -115,10 +139,12 @@ export default {
     margin-bottom: $gap-2 !important;
   }
   &__main-info {
+    // border: 1px solid green;
     position: absolute;
     bottom: 32px;
-    left: 28px;
-    width: 230px;
+    left: 0;
+    right: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -127,15 +153,16 @@ export default {
     margin-bottom: $gap-6;
   }
   &__price {
+    margin-left: $gap-6;
     display: flex;
     align-items: center;
-    // font-weight: 700;
     font-size: 20px;
     span {
       font-size: inherit;
     }
   }
   &__details-btn {
+    margin-right: $gap-6;
     position: relative;
     z-index: 1;
   }
