@@ -9,6 +9,10 @@ export default {
     totalRatings: {
       type: Number,
       required: true
+    },
+    isLarge: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -17,6 +21,7 @@ export default {
 <template>
   <div
     class="star-rating"
+    :class="{ 'star-rating--large': isLarge }"
     :style="{ '--rating': rating }"
     :aria-label="
       `This product is rated ${rating} out of 5 from ${totalRatings} reviews`
@@ -56,6 +61,15 @@ export default {
     font-size: 12px;
     font-weight: 600;
     color: $grey-3;
+  }
+
+  &--large {
+    .star-rating__icon {
+      font-size: 18px;
+    }
+    .star-rating__total {
+      font-size: 16px;
+    }
   }
 }
 </style>
