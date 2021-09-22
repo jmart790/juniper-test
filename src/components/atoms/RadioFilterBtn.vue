@@ -72,6 +72,8 @@ export default {
     font-weight: 700;
     color: $grey-3;
     white-space: nowrap;
+    transition: background-color 200ms ease, color 200ms ease,
+      border-color 200ms ease;
   }
 
   &__input:checked ~ &__fake-input {
