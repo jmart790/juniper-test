@@ -1,29 +1,15 @@
 <script>
+import AppHeader from "@/components/organisms/AppHeader";
+
 export default {
-  name: "AppLayout"
+  name: "AppLayout",
+  components: { AppHeader }
 };
 </script>
 
 <template>
   <div class="app-layout">
-    <header class="app-layout__header">
-      <nav class="app-layout__nav">
-        <img
-          class="app-layout__logo"
-          src="http://images.repzio.com/productimages/772/logo772_lg.jpg?height=75"
-          alt="Company logo"
-        />
-        <div>
-          <router-link to="/">
-            Home
-          </router-link>
-          <router-link to="/sales-rep">
-            SalesRep
-          </router-link>
-        </div>
-      </nav>
-    </header>
-
+    <AppHeader />
     <main class="app-layout__page">
       <slot></slot>
     </main>
@@ -34,36 +20,6 @@ export default {
 <style lang="scss">
 .app-layout {
   width: 100vw;
-
-  &__header {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: $off-white;
-    border-bottom: 1px solid $border-color;
-  }
-  &__nav {
-    padding: 0 $gap-5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @media screen and (min-width: $tablet) {
-      padding: 0 $gap-8;
-    }
-    @media screen and (min-width: $laptop-lg) {
-      max-width: 1660px;
-      margin: 0 auto;
-    }
-  }
-  &__logo {
-    max-height: 50px;
-    mix-blend-mode: darken;
-    @media screen and (min-width: $laptop) {
-      max-height: unset;
-    }
-  }
   &__page {
     width: 100%;
     height: 100%;
