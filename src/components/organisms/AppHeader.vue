@@ -58,13 +58,17 @@ export default {
   }
   &__link {
     position: relative;
-    margin: 0 $gap-4;
-    padding: $gap-2;
+    margin: 0 $gap-2;
+    padding: $gap-1;
     font-weight: 600;
     color: $third-font-color;
     text-decoration: none;
     letter-spacing: 1px;
     transition: color 0.2s ease-in-out;
+    @media screen and (min-width: $tablet) {
+      margin: 0 $gap-4;
+      padding: $gap-2;
+    }
     &:hover,
     &:focus {
       color: $primary-font-color;
