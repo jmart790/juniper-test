@@ -19,6 +19,15 @@ module.exports = {
       "singleline": 3,
       "multiline": 1
     }],
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+        "normal": "never",
+        "component": "always"
+      },
+      "svg": "always",
+      "math": "always"
+    }],
     "vue/order-in-components": ["error", {
       "order": [
         "el", 
