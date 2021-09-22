@@ -30,7 +30,7 @@ export default {
     >
       <div class="sales-rep__card">
         <img
-          src="https://www.imcenters.com/wp-content/uploads/2020/01/Team-Max-Fraser.jpg"
+          src="https://media-exp1.licdn.com/dms/image/C4E03AQGkD1iz5Cmt1g/profile-displayphoto-shrink_800_800/0/1579874524254?e=1637798400&v=beta&t=j3QcszOFHY4MOF5xaejGOAJpd1WHDZ1IKEzW0AIMnLU"
           :alt="`image of ${fullName}`"
         />
         <div>
