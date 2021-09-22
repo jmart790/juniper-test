@@ -37,7 +37,7 @@ export default {
     <div class="product__header">
       <h1>Product</h1>
     </div>
-    <div v-if="product">
+    <div v-if="product" class="product__content">
       <img
         :src="`${product.PhotoName}${imageQuery}`"
         alt="Product image"
@@ -52,6 +52,7 @@ export default {
           class="product__rating"
           :rating="product.rating"
           :total-ratings="product.totalRatings"
+          is-large
         />
         <div class="product__details">
           <label for="description">Description</label>
@@ -67,12 +68,11 @@ export default {
             {{ product.ItemID }}
           </p>
         </div>
+        <p class="product__price" name="price">
+          <span class="icon-rewards-linear-dollar-sign" />
+          {{ product.BasePrice.toFixed(2) }}
+        </p>
       </div>
-
-      <p class="product__price" name="price">
-        <span class="icon-rewards-linear-dollar-sign" />
-        {{ product.BasePrice.toFixed(2) }}
-      </p>
     </div>
   </div>
 </template>
@@ -81,7 +81,7 @@ export default {
 <style lang="scss">
 .product {
   &__header {
-    margin-bottom: $gap-12;
+    margin-bottom: 80px;
     display: flex;
     flex-wrap: wrap;
     gap: $gap-4;
@@ -89,6 +89,39 @@ export default {
       justify-content: space-between;
       align-items: flex-end;
     }
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-4;
+    @media screen and (min-width: $tablet) {
+      gap: 200px;
+      align-items: center;
+    }
+  }
+  &__info {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+  }
+  &__name {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  &__rating {
+    margin-bottom: $gap-6;
+  }
+  &__details {
+    p {
+      margin-bottom: $gap-2;
+    }
+  }
+  &__price {
+    position: absolute;
+    bottom: $gap-2;
+    right: 0;
+    font-size: 20px;
+    font-weight: 700;
   }
 }
 </style>
