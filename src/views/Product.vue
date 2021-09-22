@@ -89,17 +89,16 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: $gap-4;
-    @media screen and (min-width: $tablet) {
-      justify-content: space-between;
-      align-items: flex-end;
-    }
+    justify-content: space-between;
+    align-items: flex-end;
   }
   &__content {
     display: flex;
     flex-wrap: wrap;
-    gap: $gap-4;
+    gap: $gap-8;
+    max-width: 1024px;
+    justify-content: space-between;
     @media screen and (min-width: $tablet) {
-      gap: 200px;
       align-items: center;
     }
   }
