@@ -36,7 +36,12 @@ export default new Vuex.Store({
       const productsUrl = "https://raw.githubusercontent.com/RepZio/TestApplication/master/test.json"
       await fetch(productsUrl).then(async (response) => {
         const { SalesRep, items} = await response.json();
-        commit('SET_PRODUCTS', items);
+        const products = items.map(product => {
+          const rating = Number((Math.floor(Math.random() * (1000 - 100) + 100) / 100 / 2).toFixed(1));
+          const totalRatings = Math.ceil(Math.random() * (500 - 1) + 1);
+          return { ...product, rating, totalRatings }
+        })
+        commit('SET_PRODUCTS', products);
         commit('SET_SALES_REP', SalesRep);
       }).catch(error => commit('SET_ERROR', error));
       commit('SET_IS_LOADING', false);

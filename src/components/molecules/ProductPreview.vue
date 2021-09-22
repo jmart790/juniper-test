@@ -18,18 +18,10 @@ export default {
       seeMore: false
     };
   },
-  computed: {
-    rating() {
-      const num = (
-        Math.floor(Math.random() * (1000 - 100) + 100) /
-        100 /
-        2
-      ).toFixed(1);
-      return Number(num);
-    },
-    totalRatings() {
-      const num = Math.ceil(Math.random() * (500 - 1) + 1);
-      return num;
+  methods: {
+    viewProduct({ ProductID }) {
+      console.log("clicked");
+      this.$router.push({ name: "Product", params: { id: ProductID } });
     }
   }
 };
@@ -41,9 +33,14 @@ export default {
     :aria-label="`${product.ItemName} name, image, price, and details`"
     class="product-preview"
     :class="{ 'product-preview--detailed': seeMore }"
+    @click="viewProduct(product)"
   >
     <div class="product-preview__img-container">
-      <img :src="`${product.PhotoName}${imageQuery}`" alt="Product image" />
+      <img
+        :src="`${product.PhotoName}${imageQuery}`"
+        alt="Product image"
+        loading="lazy"
+      />
     </div>
 
     <div class="product-preview__info">
@@ -52,8 +49,8 @@ export default {
       </p>
       <StarRatings
         class="product-preview__rating"
-        :rating="rating"
-        :total-ratings="totalRatings"
+        :rating="product.rating"
+        :total-ratings="product.totalRatings"
       />
       <div class="product-preview__details">
         <label for="description">Description</label>
@@ -74,12 +71,15 @@ export default {
     <div class="product-preview__main-info">
       <div>
         <p class="product-preview__price" name="price">
-          <span class="icon-rewards-linear-dollar-sign"></span>
+          <span class="icon-rewards-linear-dollar-sign" />
           {{ product.BasePrice.toFixed(2) }}
         </p>
       </div>
 
-      <Btn class="product-preview__details-btn" @click="seeMore = !seeMore">
+      <Btn
+        class="product-preview__details-btn"
+        @click.self="seeMore = !seeMore"
+      >
         See {{ seeMore ? "Less" : "More" }}
       </Btn>
     </div>
@@ -139,7 +139,6 @@ export default {
     margin-bottom: $gap-2 !important;
   }
   &__main-info {
-    // border: 1px solid green;
     position: absolute;
     bottom: 32px;
     left: 0;
