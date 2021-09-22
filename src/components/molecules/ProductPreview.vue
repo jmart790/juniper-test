@@ -78,7 +78,7 @@ export default {
 
       <Btn
         class="product-preview__details-btn"
-        @click.self="seeMore = !seeMore"
+        @click.stop="seeMore = !seeMore"
       >
         See {{ seeMore ? "Less" : "More" }}
       </Btn>
