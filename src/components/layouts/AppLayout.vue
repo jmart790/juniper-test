@@ -7,16 +7,25 @@ export default {
 <template>
   <div class="app-layout">
     <header class="app-layout__header">
-      <div class="app-layout__header-inner">
+      <nav class="app-layout__nav">
         <img
           class="app-layout__logo"
           src="http://images.repzio.com/productimages/772/logo772_lg.jpg?height=75"
           alt="Company logo"
         />
-      </div>
+        <div>
+          <router-link to="/">
+            Home
+          </router-link>
+          <router-link to="/sales-rep">
+            SalesRep
+          </router-link>
+        </div>
+      </nav>
     </header>
+
     <main class="app-layout__page">
-      <slot />
+      <slot></slot>
     </main>
   </div>
 </template>
@@ -35,10 +44,11 @@ export default {
     background: $off-white;
     border-bottom: 1px solid $border-color;
   }
-  &__header-inner {
+  &__nav {
     padding: 0 $gap-5;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     @media screen and (min-width: $tablet) {
       padding: 0 $gap-8;
     }
