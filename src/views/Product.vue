@@ -1,10 +1,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import StarRatings from "@/components/atoms/StarRatings";
+import Btn from "@/components/atoms/Btn";
 
 export default {
   name: "Product",
-  components: { StarRatings },
+  components: { StarRatings, Btn },
   data() {
     return {
       imageQuery:
@@ -36,6 +37,9 @@ export default {
   <div class="product">
     <div class="product__header">
       <h1>Product</h1>
+      <Btn @click="$router.push({ path: '/' })">
+        Go Back
+      </Btn>
     </div>
     <div v-if="product" class="product__content">
       <img
