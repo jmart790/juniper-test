@@ -38,15 +38,16 @@ export default {
   border-bottom: 1px solid $border-color;
 }
 .app-nav {
-  padding: 0 $gap-5;
+  max-width: $container-max;
+  padding: 0 $container-gap-1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   @media screen and (min-width: $tablet) {
-    padding: 0 $gap-8;
+    padding: 0 $container-gap-2;
   }
-  @media screen and (min-width: $laptop-lg) {
-    max-width: 1660px;
+  @media screen and (min-width: $laptop) {
+    padding: 0 $container-gap-3;
     margin: 0 auto;
   }
   &__brand {
