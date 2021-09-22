@@ -2,7 +2,7 @@
 $apricot:               #FFB710;
 $green:                 #2DE786;
 $purple:                #AE7AFB;
-$salmon: 							  #FF7171;
+$salmon: 							  #ff916f;
 $pink:                  #FF79D8;
 $aqua:                  #52F1F1;
 $orange:                #FFA452;
@@ -22,12 +22,12 @@ $grey-8:                #282A3A;
 $grey-9:                #101223;
 $black:                 #000;
 
-$shadow-1:               0px 7px 10px rgba(black, 0.5);
+$shadow-1:              0 10px 20px rgba(0, 0, 0, 0.2);
 $focus-shadow:          0 2px 2px $aqua, 0px -2px 2px $aqua, 2px 0 2px $aqua,-2px 0 2px $aqua;
 
 
 // Color Assignments 
-$primary:                 $orange;
+$primary:                 $salmon;
 $primary-dk:              darken($primary, 10%);
 $primary-lt:              lighten($primary, 10%);
 $secondary:               $blush;
