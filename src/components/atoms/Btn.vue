@@ -23,7 +23,7 @@ export default {
     v-on="$listeners"
     v-bind="$attrs"
   >
-    <slot />
+    <slot></slot>
   </button>
 </template>
 
@@ -41,7 +41,7 @@ export default {
     outline: none;
     box-shadow: $focus-shadow;
   }
-  // variants
+
   &--primary {
     background-color: $primary;
     color: $white;
