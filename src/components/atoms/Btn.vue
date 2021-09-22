@@ -23,7 +23,7 @@ export default {
     v-on="$listeners"
     v-bind="$attrs"
   >
-    <slot></slot>
+    <slot />
   </button>
 </template>
 

@@ -11,7 +11,7 @@ export default {
   <div class="app-layout">
     <AppHeader />
     <main class="app-layout__page">
-      <slot></slot>
+      <slot />
     </main>
   </div>
 </template>
