@@ -38,7 +38,7 @@ export default {
     await this.getStoreData();
   },
   computed: {
-    ...mapGetters(["products", "salesRep", "isLoading", "error"]),
+    ...mapGetters(["products", "isLoading", "error"]),
     sortedProducts() {
       if (this.selectedSort === 3) {
         return [...this.products].sort((productA, productB) => {
