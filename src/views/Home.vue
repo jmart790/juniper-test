@@ -63,7 +63,7 @@ export default {
 </script>
 
 <template>
-  <main class="home">
+  <div class="home">
     <div class="home__header">
       <h1>New Products</h1>
       <div class="home__sort-btns-container">
@@ -86,7 +86,7 @@ export default {
         <ProductPreview :product="product" />
       </li>
     </ul>
-  </main>
+  </div>
 </template>
 
 <style lang="scss">
